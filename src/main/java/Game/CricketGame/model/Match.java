@@ -24,4 +24,5 @@ public class Match {
     private String toss;
     private String host;
     private String scorecardId;
+    private String status;
 }

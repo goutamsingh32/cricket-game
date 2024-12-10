@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PlayerService {
 
@@ -41,6 +43,24 @@ public class PlayerService {
             throw new ConflictException("Player already present");
         }
         return playerRepo.save(player);
+    }
+
+    /**
+     * Details of player get updated if player play with any new team
+     * @param teamId id of team where player is playing
+     * @param playerId id of player
+     * @return Player object
+     */
+    public Player playerPlaysWithNewTeam(String teamId, String playerId){
+        Player player = playerRepo.findById(playerId).orElseThrow(()-> new RuntimeException("Player not found"));
+
+        if(!player.getTeamIds().contains(teamId)){
+            List<String> teamIds = player.getTeamIds();
+            teamIds.add(teamId);
+            player.setTeamIds(teamIds);
+            playerRepo.save(player);
+        }
+        return player;
     }
 }
 

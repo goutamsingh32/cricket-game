@@ -2,6 +2,7 @@ package Game.CricketGame.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "player_match_stats")
@@ -9,6 +10,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Setter
 public class PlayerMatchStats {
 
+    @Id
+    private String id;
     private String playerId; // Reference from players model
     private String playerName;
 
@@ -22,6 +25,8 @@ public class PlayerMatchStats {
     // Bowling stats;
     private int wickets;
     private int overs;
+    private int ballsBowled;
+    private int runsConced;
     private int maiden;
     private double economy;
 

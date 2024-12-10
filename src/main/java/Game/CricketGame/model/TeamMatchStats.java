@@ -16,7 +16,7 @@ public class TeamMatchStats {
     @Id
     private String id;
     private String teamId; //Reference from team model
-    private String teamName;
+    private String teamName; // Reference from team model
 
     private String scorecardId; // Referenced from scorecard(optional for now)
     private int totalRuns;
@@ -24,5 +24,5 @@ public class TeamMatchStats {
     private double overs;
     private int extras;
 
-    private List<String> players = new ArrayList<>(); // Id's of playerMatchStatss
+    private List<String> players = new ArrayList<>(); // Id's of playerMatchStats
 }

@@ -9,8 +9,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Setter
 public class BowlingStats {
     private String player_id;
-    private int matches;
+    private int innings;
     private int wickets;
+    private int ballsBowled;
+    private int runsConced;
     private double economy;
     private int five_wicket_hall;
 

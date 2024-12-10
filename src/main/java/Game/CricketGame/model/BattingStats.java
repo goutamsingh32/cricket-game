@@ -10,10 +10,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Setter
 public class BattingStats {
     private String player_id;
+    private int innings;
     private int runs;
     private int four;
     private int six;
     private int ton;
     private int fifty;
     private double average;
+    private double strikeRate;
+    private int bowlsFaced;
 }

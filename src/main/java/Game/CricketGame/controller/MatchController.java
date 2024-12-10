@@ -37,8 +37,15 @@ public class MatchController {
         }
     }
 
+    /**
+     * Complete match
+     * @param matchId id of match that is compeleted
+     * @return
+     */
     @PostMapping("/match/complete")
     public ResponseEntity<CustomResponse<Match>> matchCompelete(@RequestBody String matchId){
-    
+        Match match = matchService.matchCompelete(matchId);
+        CustomResponse<Match> response = CustomResponse.success("Stats updated successfully", match, HttpStatus.OK);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }
